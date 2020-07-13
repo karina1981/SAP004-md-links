@@ -1,5 +1,5 @@
 root = true
-
+format_on_save = true
 [*]
 indent_style = space
 indent_size = 2

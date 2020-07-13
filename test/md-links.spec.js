@@ -1,10 +1,11 @@
 const mdLinks = require('../');
 
+const x = false
 
 describe('mdLinks', () => {
 
-  it('should...', () => {
-    console.log('FIX ME!');
+  test('testing file name', () => {
+    expect(x).toEqual(false);
   });
 
 });
