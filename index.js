@@ -5,8 +5,7 @@ const fs = require('fs');
 const MarkdownIt = require('markdown-it');
 const md = new MarkdownIt();
 const path = require('path');
-
-const package = require('./package.json');
+const packageJson = require('./package.json');
 const axios = require('axios').default;
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
@@ -87,7 +86,7 @@ const mdLinks = (pathFile, { validate, stats, contentMd }) => {
       for (let link of links) {
         linksUnique[link.href] = link.href
       }
-      resolve({ 
+      return resolve({ 
         total: links.length, 
         unique: Object.keys(linksUnique).length
       })
@@ -112,7 +111,7 @@ const mdLinks = (pathFile, { validate, stats, contentMd }) => {
 module.exports = mdLinks
 
 if (process.argv.length > 1) {
-  program.version(package.version);
+  program.version(packageJson.version);
 
   program.command('read [path-to-file]')
   .description('Lê o conteúdo de um path')
