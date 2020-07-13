@@ -24,11 +24,11 @@ describe('mdLinks', () => {
     })
   })
 
-  test('testing return links --validate --stats', () => {
-    mdLinks('./test/test.md', {validate: true, stats: true}).then(result => {
-      expect(result).toEqual(mockStats)
-    })
-  })
+  // test('testing return links --validate --stats', () => {
+  //   mdLinks('./test/test.md', {validate: true, stats: true}).then(result => {
+  //     expect(result).toEqual(mockStats)
+  //   })
+  // })
 
 
 
