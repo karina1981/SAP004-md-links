@@ -109,33 +109,28 @@ const mdLinks = (pathFile, { validate, stats, contentMd }) => {
   })
 };
 
-program.version(package.version);
-
-program.command('read [path-to-file]')
-.description('Lê o conteúdo de um path')
-.option('-v, --validate [validate]', 'Valida os links do conteudo do arquivo')
-.option('-s, --stats [stats]', 'Statistica de links do conteudo do arquivo')
-.action((pathFile, options) => {
-  new Promise((resolve, reject) => {
-
-    if (!pathFile) {
-      return reject('Erro precisa informar o parametro [path-to-file] "arquivo.md" para leitura.')
-    }
-
-    mdLinks(pathFile, { validate: options.validate, stats: options.stats }).then(result => {
-      resolve(result)
-    })
-
-  }).then(result => {
-    console.log(result)
-  }).catch(err => {
-    console.log(err)
-  })
-});
-
 module.exports = mdLinks
 
 if (process.argv.length > 1) {
+  program.version(package.version);
+
+  program.command('read [path-to-file]')
+  .description('Lê o conteúdo de um path')
+  .option('-v, --validate [validate]', 'Valida os links do conteudo do arquivo')
+  .option('-s, --stats [stats]', 'Statistica de links do conteudo do arquivo')
+  .action((pathFile, options) => {
+
+    if (!pathFile) {
+      console.log('Erro precisa informar o parametro [path-to-file] "arquivo.md" para leitura.')
+      return false;
+    }
+
+    mdLinks(pathFile, { validate: options.validate, stats: options.stats }).then(result => {
+      console.log(result)
+    })
+
+  });
+
   program.parse(process.argv);
 }
 
