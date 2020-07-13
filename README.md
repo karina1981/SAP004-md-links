@@ -2,10 +2,10 @@
 
 ## Índice
 
-* [1. Prefácio](#1-prefácio)
-* [2. Como Instalar:](#2-Como)
+- [1. Prefácio](#1-prefácio)
+- [2. Como Instalar:](#2-Como)
 
-***
+---
 
 ## 1. Prefácio
 
@@ -13,7 +13,13 @@ Markdown é uma linguagem de marcação a qual é usada em muitas plataformas qu
 
 ## 2. Como instalar
 
-$ npm install -g karina1981/SAP004-md-links
+Para instalação global, execute no terminal:
+
+\$ npm -i -g karina1981/SAP004-md-links
+
+Para instalação local, execute no terminal
+
+\$ npm -i karina/SAP004-md-links
 
 #### Exemplo
 
@@ -21,19 +27,19 @@ $ npm install -g karina1981/SAP004-md-links
 const mdLinks = require("md-links");
 
 mdLinks("./some/example.md")
-  .then(links => {
+  .then((links) => {
     // => [{ href, text, file }]
   })
   .catch(console.error);
 
 mdLinks("./some/example.md", { validate: true })
-  .then(links => {
+  .then((links) => {
     // => [{ href, text, file, status, ok }]
   })
   .catch(console.error);
 
 mdLinks("./some/dir")
-  .then(links => {
+  .then((links) => {
     // => [{ href, text, file }]
   })
   .catch(console.error);
@@ -108,6 +114,6 @@ A função deve retornar uma promessa (`Promise`) que resolve um array (`Array`)
 objetos(`Object`), onde cada objeto representa um link, contendo as seguintes
 propriedades:
 
-* `href`: URL encontrada.
-* `text`: Texto que irá aparecer dentro de um link (`<a>`).
-* `file`: Rota do arquivo onde foi encontrado o link.
+- `href`: URL encontrada.
+- `text`: Texto que irá aparecer dentro de um link (`<a>`).
+- `file`: Rota do arquivo onde foi encontrado o link.
